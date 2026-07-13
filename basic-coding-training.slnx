@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/SOLID/">
+    <Project Path="SOLID/SolidSample.Bad/SolidSample.Bad.csproj" />
+    <Project Path="SOLID/SolidSample.Good/SolidSample.Good.csproj" />
+    <Project Path="SOLID/SolidSample.Tests/SolidSample.Tests.csproj" />
+  </Folder>
+</Solution>
