@@ -1,0 +1,77 @@
+# 依存性の注入（DI）研修用サンプルコード
+
+本リポジトリは、DI（Dependency Injection）の概念を学ぶためのサンプルコード群です。
+段階的にDIの仕組みと効果を理解できるように、3つのプロジェクトに分割されています。
+
+## プロジェクト構成
+
+1つのソリューション（`DiTraining.sln`）の中に、以下の3つのコンソールアプリケーションが含まれています。
+
+* **`DiTraining.Bad`**
+  * DIを適用していない（密結合な）パターンのコードです。
+  * 実行エントリポイント: `Program.cs`
+* **`DiTraining.Good`**
+  * コンストラクタインジェクションによりDIを適用した（疎結合な）パターンのコードです。
+  * 実行エントリポイント: `Program.cs`
+* **`DiTraining.DiContainer`**
+  * DIコンテナ（.NET標準機能）を使用して依存関係を管理する実務的なパターンのコードです。
+  * 実行エントリポイント: `Program.cs`
+
+## 必要な環境とパッケージ
+
+* .NET SDK (C# 10以降をサポートするバージョン。推奨: .NET 6.0以上)
+* **NuGetパッケージ**:
+  `DiTraining.DiContainer` プロジェクトでは、DIコンテナ機能を利用するために以下のNuGetパッケージを使用しています。
+  * `Microsoft.Extensions.DependencyInjection`
+
+## 動かし方
+
+### 1. ソリューション全体のビルド
+プロジェクトのルートディレクトリ（`.sln`がある場所）で以下のコマンドを実行します。
+```bash
+dotnet build
+```
+
+### 2. 各プロジェクトの実行
+実行したいプロジェクトのディレクトリに移動して `dotnet run` を実行します。
+
+**Badパターンの実行**
+```bash
+cd DiTraining.Bad
+dotnet run
+```
+
+**Goodパターンの実行**
+```bash
+cd DiTraining.Good
+dotnet run
+```
+
+**DIコンテナパターンの実行**
+```bash
+cd DiTraining.DiContainer
+dotnet run
+```
+
+## (参考) プロジェクトを最初から作成する環境構築コマンド
+
+本サンプルコードと同様のプロジェクト構成をゼロから構築する場合は、以下のコマンドを実行します。
+
+```bash
+# ソリューションの作成
+dotnet new sln -n DiTraining
+
+# 各プロジェクトの作成
+dotnet new console -n DiTraining.Bad
+dotnet new console -n DiTraining.Good
+dotnet new console -n DiTraining.DiContainer
+
+# ソリューションへの追加
+dotnet sln add DiTraining.Bad/DiTraining.Bad.csproj
+dotnet sln add DiTraining.Good/DiTraining.Good.csproj
+dotnet sln add DiTraining.DiContainer/DiTraining.DiContainer.csproj
+
+# DIコンテナ用パッケージの追加
+cd DiTraining.DiContainer
+dotnet add package Microsoft.Extensions.DependencyInjection
+```
