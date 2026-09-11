@@ -7,6 +7,21 @@ builder.Services.AddApplication().AddInfrastructure();
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+app.MapGet("/", () => Results.Ok(new
+{
+    name = "TodoApp API",
+    message = "APIは起動しています。Todo操作は /api/todos を使用してください。",
+    endpoints = new[]
+    {
+        "GET /api/todos",
+        "GET /api/todos/{id}",
+        "POST /api/todos",
+        "PUT /api/todos/{id}",
+        "POST /api/todos/{id}/complete",
+        "DELETE /api/todos/{id}"
+    }
+}));
+
 var group = app.MapGroup("/api/todos").WithTags("Todos");
 
 group.MapGet("/", async (ITodoService service, CancellationToken ct) => Results.Ok(await service.GetAllAsync(ct)));
