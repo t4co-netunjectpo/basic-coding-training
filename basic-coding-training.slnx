@@ -10,4 +10,12 @@
     <Project Path="SOLID/SolidSample.Good/SolidSample.Good.csproj" />
     <Project Path="SOLID/SolidSample.Tests/SolidSample.Tests.csproj" />
   </Folder>
+  <Folder Name="/Four-Layer Architecture/">
+    <Project Path="Four-Layer Architecture/TodoApp.Presentation/TodoApp.Presentation.csproj" />
+    <Project Path="Four-Layer Architecture/TodoApp.Application/TodoApp.Application.csproj" />
+    <Project Path="Four-Layer Architecture/TodoApp.Domain/TodoApp.Domain.csproj" />
+    <Project Path="Four-Layer Architecture/TodoApp.Infrastructure/TodoApp.Infrastructure.csproj" />
+    <Project Path="Four-Layer Architecture/TodoApp.Domain.Tests/TodoApp.Domain.Tests.csproj" />
+    <Project Path="Four-Layer Architecture/TodoApp.Application.Tests/TodoApp.Application.Tests.csproj" />
+  </Folder>
 </Solution>
