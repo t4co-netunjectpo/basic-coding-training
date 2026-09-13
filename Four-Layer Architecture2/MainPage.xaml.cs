@@ -16,6 +16,7 @@ public sealed partial class MainPage : Page
     public MainPage()
     {
         InitializeComponent();
+        DataContext = this;
         Loaded += async (_, _) => await ViewModel.InitializeAsync();
     }
 }
