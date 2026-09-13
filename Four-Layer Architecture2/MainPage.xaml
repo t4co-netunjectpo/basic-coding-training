@@ -10,8 +10,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <ScrollViewer>
-        <Grid Padding="32" MaxWidth="900" RowSpacing="24">
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <Grid Padding="32"
+              HorizontalAlignment="Center"
+              MaxWidth="900"
+              RowSpacing="24">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -43,6 +46,7 @@
                 <InfoBar IsOpen="{x:Bind ViewModel.HasError, Mode=OneWay}"
                          Severity="Error" Message="{x:Bind ViewModel.ErrorMessage, Mode=OneWay}" />
                 <ListView ItemsSource="{x:Bind ViewModel.Todos, Mode=OneWay}"
+                          HorizontalContentAlignment="Stretch"
                           SelectionMode="None">
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="todos:TodoDto">
