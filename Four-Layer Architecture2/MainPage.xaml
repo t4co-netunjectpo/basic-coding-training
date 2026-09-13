@@ -24,19 +24,20 @@
                            Opacity="0.7" />
             </StackPanel>
 
-            <Grid Grid.Row="1" ColumnSpacing="12">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="2*" />
-                    <ColumnDefinition Width="3*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <TextBox Header="タイトル" PlaceholderText="タスクのタイトル"
-                         Text="{x:Bind ViewModel.NewTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBox Grid.Column="1" Header="説明" PlaceholderText="任意"
-                         Text="{x:Bind ViewModel.NewDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                <Button Grid.Column="2" Content="追加" VerticalAlignment="Bottom"
+            <StackPanel Grid.Row="1" Spacing="12">
+                <Grid ColumnSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Header="タイトル" PlaceholderText="タスクのタイトル"
+                             Text="{x:Bind ViewModel.NewTitle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    <TextBox Grid.Column="1" Header="説明" PlaceholderText="任意"
+                             Text="{x:Bind ViewModel.NewDescription, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+                <Button Content="追加" HorizontalAlignment="Left"
                         Command="{x:Bind ViewModel.AddCommand}" />
-            </Grid>
+            </StackPanel>
 
             <StackPanel Grid.Row="2" Spacing="12">
                 <InfoBar IsOpen="{x:Bind ViewModel.HasError, Mode=OneWay}"
