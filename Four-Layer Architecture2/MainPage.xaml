@@ -60,7 +60,7 @@
                                 </StackPanel>
                                 <StackPanel Grid.Column="1" Orientation="Horizontal"
                                             VerticalAlignment="Center" Spacing="8">
-                                    <TextBlock Text="{x:Bind IsCompleted}"
+                                    <TextBlock Text="{x:Bind IsCompleted, Converter={StaticResource BooleanToStatusConverter}}"
                                                VerticalAlignment="Center" />
                                     <Button Content="完了"
                                             Command="{Binding ElementName=Page, Path=DataContext.ViewModel.CompleteCommand}"
