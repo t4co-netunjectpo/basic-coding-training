@@ -220,7 +220,8 @@ Repository Pattern/
    └─ RepositoryPattern_ARC42.md
 ```
 
-現時点では`Program.cs`と`.csproj`のみが作成済みであり、上記のクラスは実装予定である。
+上記の構成を`RepositoryPattern.Console`に実装している。単体テストは
+`RepositoryPattern.Tests`に配置し、Good実装のサービスへFake Unit of Workを注入する。
 
 ### 5.2 コンポーネント責務
 
@@ -573,24 +574,23 @@ CREATE TABLE OrderItems (
 
 ### 実装
 
-- [ ] NuGetパッケージに`Microsoft.Data.Sqlite`と`Dapper`を追加する
-- [ ] 3つのエンティティを作成する
-- [ ] Repositoryインターフェースを作成する
-- [ ] Dapperを使ったRepositoryを作成する
-- [ ] Unit of Workと共有トランザクションを作成する
-- [ ] `OrderService`へUnit of Workのファクトリを注入する
-- [ ] RepositoryなしのBad実装を作成する
-- [ ] DB初期化とサンプルデータ投入を作成する
-- [ ] `Program.cs`からGood/Badの両方を実行できるようにする
+- [x] NuGetパッケージに`Microsoft.Data.Sqlite`と`Dapper`を追加する
+- [x] 3つのエンティティを作成する
+- [x] Repositoryインターフェースを作成する
+- [x] Dapperを使ったRepositoryを作成する
+- [x] Unit of Workと共有トランザクションを作成する
+- [x] `OrderService`へUnit of Workのファクトリを注入する
+- [x] RepositoryなしのBad実装を作成する
+- [x] DB初期化とサンプルデータ投入を作成する
+- [x] `Program.cs`からGood/Badの両方を実行できるようにする
 
 ### 検証
 
-- [ ] 成功時に在庫が正しく減る
-- [ ] 成功時に注文ヘッダと明細が登録される
-- [ ] 商品不存在時に失敗する
-- [ ] 在庫不足時に失敗する
-- [ ] 注文明細登録の強制失敗時にRollbackされる
-- [ ] GoodのServiceをFakeで単体テストできる
+- [x] 成功時に在庫が正しく減る
+- [x] 成功時に注文ヘッダと明細が登録される
+- [x] 商品不存在時に失敗する
+- [x] 在庫不足時に失敗する
+- [x] 注文明細登録の強制失敗時にRollbackされる
+- [x] GoodのServiceをFakeで単体テストできる
 - [ ] BadとGoodのSQL配置、依存関係、トランザクションを比較できる
 - [ ] `dotnet build`が警告・エラーなしで完了する
-
